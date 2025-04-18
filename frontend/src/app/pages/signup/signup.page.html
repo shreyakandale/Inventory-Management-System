@@ -1,0 +1,106 @@
+<ion-header>
+  <ion-toolbar style="color: black;background-color: blanchedalmond;">
+    <ion-title>📝 Create Account</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding signup-background">
+
+  <div class="signup-wrapper">
+
+    <!-- ✅ Success -->
+    <ion-text color="success" *ngIf="successMessage">
+      <p class="message">{{ successMessage }}</p>
+    </ion-text>
+
+    <!-- ❌ Error -->
+    <ion-text color="danger" *ngIf="errorMessage">
+      <p class="message">{{ errorMessage }}</p>
+    </ion-text>
+
+    <!-- 👤 Email Field -->
+    <ion-item lines="inset">
+      <ion-icon slot="start" name="mail-outline" color="medium"></ion-icon>
+      <ion-label position="floating">Email</ion-label>
+      <ion-input type="email" [(ngModel)]="email"></ion-input>
+    </ion-item>
+
+    <!-- 🔑 Password Field -->
+    <ion-item lines="inset">
+      <ion-icon slot="start" name="lock-closed-outline" color="medium"></ion-icon>
+      <ion-label position="floating">Password</ion-label>
+      <ion-input type="password" [(ngModel)]="password"></ion-input>
+    </ion-item>
+
+    <!-- 🔒 Confirm Password -->
+    <ion-item lines="inset">
+      <ion-icon slot="start" name="shield-checkmark-outline" color="medium"></ion-icon>
+      <ion-label position="floating">Confirm Password</ion-label>
+      <ion-input type="password" [(ngModel)]="confirmPassword"></ion-input>
+    </ion-item>
+
+    <!-- 🎯 Sign Up Button -->
+    <ion-button expand="block" class="signup-btn ion-margin-top" (click)="signup()">
+      🚀 Sign Up Now
+    </ion-button>
+
+    <!-- 👋 Already have an account -->
+    <ion-text color="medium" class="ion-text-center ion-margin-top">
+      <p>Already registered? <a routerLink="/login" class="login-link">Login here</a></p>
+    </ion-text>
+  </div>
+
+  <!-- Embedded CSS Styling -->
+  <style>
+    .signup-background {
+      --background: linear-gradient(to bottom right, #efc177, #e2d1c3);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .signup-wrapper {
+      width: 100%;
+      max-width: 420px;
+      margin: auto;
+      padding-top: 8vh;
+    }
+
+    .message {
+      text-align: center;
+      font-size: 1rem;
+      margin-bottom: 12px;
+      font-weight: 500;
+    }
+
+    ion-item {
+      --background: white;
+      border-radius: 12px;
+      margin-top: 10px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    }
+
+    ion-label {
+      font-weight: 500;
+    }
+
+    .signup-btn {
+      font-size: 1rem;
+      font-weight: bold;
+      border-radius: 20px;
+      margin-top: 20px;
+      --box-shadow: 0 4px 12px rgba(56, 128, 255, 0.3);
+    }
+
+    .login-link {
+      color: #3880ff;
+      font-weight: 500;
+      text-decoration: none;
+    }
+
+    .login-link:hover {
+      text-decoration: underline;
+    }
+  </style>
+
+</ion-content>

@@ -19,7 +19,7 @@ npm start
 6. Run Frontend (arms-frontend)
 Open a new terminal.
 Go to the frontend folder:
-cd srms-frontend
+cd frontend
 
 7.Install packages:
 npm install

@@ -1,0 +1,119 @@
+<ion-header>
+  <ion-toolbar style="color: black;">
+    <ion-title>{{ isEditMode ? 'Edit Item' : 'Add Item' }}</ion-title>
+    <ion-buttons slot="end">
+      <ion-button fill="clear" color="dark" (click)="close()">Close</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <form (ngSubmit)="save()">
+
+    <ion-item lines="full">
+      <ion-label position="floating">Item Name</ion-label>
+      <ion-input [(ngModel)]="item.ItemName" name="itemName" required></ion-input>
+    </ion-item>
+
+    <ion-item lines="full">
+      <ion-label position="floating">Category</ion-label>
+      <ion-input [(ngModel)]="item.Category" name="category" required></ion-input>
+    </ion-item>
+
+    <ion-item lines="full">
+      <ion-label position="floating">Quantity</ion-label>
+      <ion-input type="number" [(ngModel)]="item.Quantity" name="quantity" required></ion-input>
+    </ion-item>
+
+    <ion-item lines="full">
+      <ion-label position="floating">Price</ion-label>
+      <ion-input type="number" [(ngModel)]="item.Price" name="price" required></ion-input>
+    </ion-item>
+
+    <ion-item lines="full">
+      <ion-label position="floating">Supplier</ion-label>
+      <ion-input [(ngModel)]="item.Supplier" name="supplier" required></ion-input>
+    </ion-item>
+
+    <ion-item lines="full">
+      <ion-label position="floating">Restock Date</ion-label>
+      <ion-datetime presentation="date" [(ngModel)]="item.RestockDate" name="restockDate" required></ion-datetime>
+    </ion-item>
+
+    <!-- 📸 Image Upload -->
+    <!-- <ion-item lines="none" class="ion-margin-top">
+      <ion-label>Item Image</ion-label>
+      <input type="file" (change)="onImageSelected($event)" accept="image/*" />
+    </ion-item> -->
+
+    <!-- 👀 Image Preview -->
+    <div *ngIf="item.Image" class="ion-margin-top" style="text-align: center;">
+      <img [src]="item.Image" alt="Preview" style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 0 6px rgba(0,0,0,0.1);" />
+    </div>
+
+    <!-- 💾 Save/Update Button -->
+    <ion-button  type="submit" class="ion-margin-top" color="success">
+      {{ isEditMode ? 'Update Item' : 'Save Item' }}
+    </ion-button>
+
+  </form>
+  <style>
+    ion-content {
+      --background: linear-gradient(to right, #f0db70, #cbdf57);
+      min-height: 100%;
+    }
+  
+    ion-toolbar {
+      --background: #ffffff;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    }
+  
+    ion-title {
+      font-weight: bold;
+      font-size: 1.3rem;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+  
+    ion-button[color="success"] {
+      --background: #28a745;
+      --background-hover: #218838;
+      --border-radius: 12px;
+      font-weight: 600;
+      font-size: 1rem;
+    }
+  
+    ion-item {
+      --background: #ffffff;
+      border-radius: 10px;
+      margin-top: 10px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+    }
+  
+    ion-label {
+      font-weight: 500;
+      color: #4b5563;
+    }
+  
+    ion-input,
+    ion-datetime {
+      font-size: 0.95rem;
+      padding: 8px 0;
+    }
+  
+    form {
+      background-color: #f2ea90;
+      padding: 50px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    }
+  
+    img {
+      margin-top: 12px;
+      max-width: 90%;
+      height: auto;
+      border-radius: 10px;
+      border: 2px solid #e0e0e0;
+    }
+  </style>
+  
+</ion-content>

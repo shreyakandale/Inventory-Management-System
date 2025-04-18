@@ -1,7 +1,0 @@
-{
-  "name": "ims-frontend",
-  "integrations": {
-    "capacitor": {}
-  },
-  "type": "angular"
-}

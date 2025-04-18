@@ -1,0 +1,203 @@
+/* Custom header background */
+
+.custom-header {
+    --background: #333333; /* Soft yellow background */
+    font-family: 'Segoe UI', 'Roboto', 'Arial', sans-serif;
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-shadow: 1px 1px 2px rgba(9, 9, 9, 0.1);
+  color: #f1c174;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  }
+  
+  /* Custom logout button styles */
+  .custom-logout-button {
+    --background: linear-gradient(135deg, #696969, #696969);
+    --color: white;
+    --border-radius: 10px;
+    --padding-start: 20px;
+    --padding-end: 20px;
+    --box-shadow: 0 4px 10px #696969;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    margin-top: 16px;
+  }
+  
+  .custom-logout-button:hover {
+    transform: translateY(-2px);
+    --box-shadow: 0 6px 14px rgba(168, 44, 209, 0.6);
+  }
+  
+  .custom-search {
+    background: #eec05e;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    padding: 6px 12px;
+    margin: 16px 0;
+    border: 1px solid #e0e0e0;
+    transition: box-shadow 0.3s ease;
+  }
+  
+  .custom-search:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+  }
+  
+  .custom-search ion-icon {
+    font-size: 20px;
+    color: #888;
+  }
+  
+  .custom-search ion-input {
+    font-size: 16px;
+    color: #333;
+    --padding-start: 10px;
+  }
+  
+  .add-item-btn {
+    width: auto;
+    max-width: 300px;
+    margin: 10px auto;
+    display: block;
+    background-color: #fcfdfc; /* Green */
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+  }
+  
+  .download-btn {
+    width: auto;
+    max-width: 300px;
+    margin: 10px auto;
+    display: block;
+    background-color: #f5f7f9; /* Blue */
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+  }
+  
+  .inventory-item {
+    background: linear-gradient(135deg, #ecc56c, #f8f9fa);
+    border-radius: 16px;
+    margin-bottom: 16px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
+    padding: 16px 20px;
+    max-width: 100%;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    border: 1px solid #e0e0e0;
+  }
+  
+  .inventory-item:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
+    border-color: #d0d0d0;
+  }
+  
+  .inventory-item h2,
+  .inventory-item p {
+    margin: 0;
+    padding: 2px 0;
+    color: #333;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+  
+  .inventory-item h2 {
+    font-size: 18px;
+    font-weight: 600;
+  }
+  
+  .inventory-item p {
+    font-size: 14px;
+    color: #666;
+  }
+  
+  
+  ion-card {
+    padding: 10px;
+    background-color: #f3f4f6;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .item-name {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 4px;
+  }
+  
+  ion-button[color="warning"]::part(native) {
+    color: #ff9500;
+  }
+  
+  ion-button[color="danger"]::part(native) {
+    color: #e74c3c;
+  }
+  
+  ion-button[color="medium"]::part(native) {
+    background: #e0e0e0;
+    color: #2d3436;
+  }
+  
+  /* Styling for Cards */
+  ion-card-header {
+    background-color: #b3e5fc;
+  }
+  
+  ion-card-title {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #0d47a1;
+  }
+  
+  ion-card-subtitle {
+    font-size: 1rem;
+    color: #0d47a1;
+  }
+  
+  ion-thumbnail {
+    border-radius: 8px;
+    overflow: hidden;
+    height: 120px;
+    width: 120px;
+  }
+  
+  /* Responsive layout */
+  @media screen and (max-width: 768px) {
+    .inventory-item {
+      margin-left: 5px;
+      margin-right: 5px;
+    }
+    .custom-search,
+    .add-item-btn {
+      width: 90%;
+    }
+  }
+  .add-item-btn,
+.download-btn {
+  --background: linear-gradient(135deg, #4caf50, #2e7d32); /* green tones */
+  --color: white;
+  --border-radius: 12px;
+  --padding-start: 24px;
+  --padding-end: 24px;
+  --box-shadow: 0 4px 10px rgba(76, 175, 80, 0.3);
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-transform: none;
+  margin: 10px 0;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.download-btn {
+  --background: linear-gradient(135deg, #2196f3, #1565c0); /* blue tones */
+  --box-shadow: 0 4px 10px rgba(33, 150, 243, 0.3);
+}
+
+.add-item-btn:hover,
+.download-btn:hover {
+  transform: translateY(-2px);
+  --box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
+}

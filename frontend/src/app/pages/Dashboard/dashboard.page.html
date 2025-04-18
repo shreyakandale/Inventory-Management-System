@@ -1,0 +1,69 @@
+<ion-header>
+  <ion-toolbar class="custom-header">
+    <ion-title style="font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">🧾 Inventory Dashboard</ion-title>
+    <ion-buttons slot="end">
+      <ion-button fill="clear" class="custom-logout-button" (click)="logout()">Logout</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+
+  <!-- ➕ Admin Add Button -->
+  <ion-button *ngIf="role === 'admin'" class="add-item-btn" (click)="openAddModal()">
+    +  Add Item
+  </ion-button>
+
+  <!-- ⬇️ CSV Download Button -->
+  <ion-button *ngIf="role === 'admin'" class="download-btn" (click)="downloadCSV()">
+    ⬇️ Download CSV
+  </ion-button>
+
+  <!-- 🔍 Search -->
+  <ion-item lines="none" class="custom-search">
+    <ion-icon name="search-outline" slot="start" color="medium"></ion-icon>
+    <ion-input
+      placeholder="Search by name or category"
+      [(ngModel)]="searchTerm"
+      (ionInput)="filterItems()"
+    ></ion-input>
+  </ion-item>
+
+  <!-- 🧾 Inventory List -->
+  <ion-list *ngIf="filteredItems.length > 0; else emptyList">
+    <ion-item *ngFor="let item of filteredItems; let i = index" lines="inset" class="inventory-item">
+
+      <!-- 🖼 Thumbnail -->
+      <ion-thumbnail slot="start" *ngIf="item.Image">
+        <img [src]="item.Image" alt="Item Image" style="object-fit: cover; border-radius: 6px;" />
+      </ion-thumbnail>
+
+      <ion-label style="background-color: rgb(244, 238, 238) ;border-radius: 9px;" class="item-details">
+        <h2 style="font-family:serif;" style="color: rgb(16, 16, 16);" class="ion-text-capitalize"><strong>{{ item.ItemName }}</strong></h2>
+        <p>🏷️ <strong>Category:</strong> {{ item.Category }}</p>
+        <p>📊 <strong>Quantity:</strong> {{ item.Quantity }}</p>
+        <p>💰 <strong>Price:</strong> ₹{{ item.Price }}</p>
+        <p>🏭 <strong>Supplier:</strong> {{ item.Supplier }}</p>
+        <p>🗓️ <strong>Restock:</strong> {{ item.RestockDate | date: 'yyyy-MM-dd' }}</p>
+      </ion-label>
+
+      <!-- ⚙️ Admin Actions -->
+      <ion-buttons slot="end" *ngIf="role === 'admin'">
+        <ion-button fill="clear" color="warning" (click)="openEditModal(item, i)">✏️
+          <!-- <ion-icon name="create-outline"></ion-icon> -->
+        </ion-button>
+        <ion-button fill="clear" color="danger" (click)="confirmDelete(i)">
+          <!-- <ion-icon name="trash-outline"></ion-icon> -->🗑️
+        </ion-button>
+      </ion-buttons>
+    </ion-item>
+  </ion-list>
+
+  <!-- 🕳️ No Items Found -->
+  <ng-template #emptyList>
+    <ion-text color="medium">
+      <p class="ion-text-center ion-padding-top">😕 No inventory items found.</p>
+    </ion-text>
+  </ng-template>
+
+</ion-content>

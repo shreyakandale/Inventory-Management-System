@@ -16,7 +16,7 @@ npm install
 5.Start the backend server:
 npm start
 
-6. Run Frontend (arms-frontend)
+6. Run Frontend (frontend)
 Open a new terminal.
 Go to the frontend folder:
 cd frontend
